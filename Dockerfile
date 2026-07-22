@@ -1,9 +1,9 @@
-FROM maven:3.8-eclipse-temurin-8-alpine AS build
+FROM maven:3.9.16-eclipse-temurin-8 AS build
 
 WORKDIR /home/app
-COPY . /home/app
+COPY . .
 
-RUN mvn -f /home/app/pom.xml clean package
+RUN mvn -B -f pom.xml clean package
 
 FROM eclipse-temurin:8-jre-alpine
 
